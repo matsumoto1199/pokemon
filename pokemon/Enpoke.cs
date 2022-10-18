@@ -22,7 +22,7 @@ namespace pokemon
             this.D = d;
             this.Type = type;
         }
-        public void Eatt(Enpoke terget)
+        public void Eatt(Mapoke terget)
         {
             int dm = A - D;
             int wn = dm * 2;
@@ -31,19 +31,30 @@ namespace pokemon
             {
                 if (terget.Type == "fire")
                 {
-                    Console.WriteLine("{0}の攻撃！", Name);
-                    Hp -= dm;
-                    
-
-
+                    Console.WriteLine("\n{0}の攻撃！\n", Name);
+                    terget.Hp -= dm;
+                    terget.Check();
+                    Console.WriteLine("\n{0}は{1}ダメージを受けた！\n", terget.Name, dm);
+                    Console.WriteLine("\n{1}\nHP：{0}\n", terget.Hp, terget.Name);
+                    Console.WriteLine("\n------------------------------------------------------------\n");
                 }
                 else if (terget.Type == "water")
                 {
-
+                    Console.WriteLine("\n{0}の攻撃！\n", Name);
+                    terget.Hp -= lo;
+                    terget.Check();
+                    Console.WriteLine("\n{0}は{1}ダメージを受けた！\n", terget.Name, lo);
+                    Console.WriteLine("\n{1}\nHP：{0}\n", terget.Hp, terget.Name);
+                    Console.WriteLine("\n------------------------------------------------------------\n");
                 }
-                else
+                else if (terget.Type == "grass")
                 {
-
+                    Console.WriteLine("\n{0}の攻撃！\n", Name);
+                    terget.Hp -= wn;
+                    terget.Check();
+                    Console.WriteLine("\n{0}は{1}ダメージを受けた！\n", terget.Name, wn);
+                    Console.WriteLine("\n{1}\nHP：{0}\n", terget.Hp, terget.Name);
+                    Console.WriteLine("\n------------------------------------------------------------\n");
                 }
             }
             else if (Type == "water")
@@ -51,32 +62,75 @@ namespace pokemon
 
                 if (terget.Type == "fire")
                 {
-
+                    Console.WriteLine("\n{0}の攻撃！\n", Name);
+                    terget.Hp -= wn;
+                    terget.Check();
+                    Console.WriteLine("\n{0}は{1}ダメージを受けた！\n", terget.Name, wn);
+                    Console.WriteLine("\n{1}\nHP：{0}\n", terget.Hp, terget.Name);
+                    Console.WriteLine("\n------------------------------------------------------------\n");
                 }
                 else if (terget.Type == "water")
                 {
-
+                    Console.WriteLine("\n{0}の攻撃！\n", Name);
+                    terget.Hp -= dm;
+                    terget.Check();
+                    Console.WriteLine("\n{0}は{1}ダメージを受けた！\n", terget.Name, dm);
+                    Console.WriteLine("\n{1}\nHP：{0}\n", terget.Hp, terget.Name);
+                    Console.WriteLine("\n------------------------------------------------------------\n");
                 }
-                else
+                else if (terget.Type == "grass")
                 {
-
+                    Console.WriteLine("\n{0}の攻撃！\n", Name);
+                    terget.Hp -= lo;
+                    terget.Check();
+                    Console.WriteLine("\n{0}は{1}ダメージを受けた！\n", terget.Name, lo);
+                    Console.WriteLine("\n{1}\nHP：{0}\n", terget.Hp, terget.Name);
+                    Console.WriteLine("\n------------------------------------------------------------\n");
                 }
             }
-            else
+            else if (Type == "grass")
             {
 
                 if (terget.Type == "fire")
                 {
-
+                    Console.WriteLine("\n{0}の攻撃！\n", Name);
+                    terget.Hp -= lo;
+                    terget.Check();
+                    Console.WriteLine("\n{0}は{1}ダメージを受けた！\n", terget.Name, lo);
+                    Console.WriteLine("\n{1}\nHP：{0}\n", terget.Hp, terget.Name);
+                    Console.WriteLine("\n------------------------------------------------------------\n");
                 }
                 else if (terget.Type == "water")
                 {
-
+                    Console.WriteLine("\n{0}の攻撃！\n", Name);
+                    terget.Hp -= wn;
+                    terget.Check();
+                    Console.WriteLine("\n{0}は{1}ダメージを受けた！\n", terget.Name, wn);
+                    Console.WriteLine("\n{1}\nHP：{0}\n", terget.Hp, terget.Name);
+                    Console.WriteLine("\n------------------------------------------------------------\n");
                 }
-                else
+                else if (terget.Type == "grass")
                 {
-
+                    Console.WriteLine("\n{0}の攻撃！\n", Name);
+                    terget.Hp -= dm;
+                    terget.Check();
+                    Console.WriteLine("\n{0}は{1}ダメージを受けた！\n", terget.Name, dm);
+                    Console.WriteLine("\n{1}\nHP：{0}\n", terget.Hp, terget.Name);
+                    Console.WriteLine("\n------------------------------------------------------------\n");
                 }
+            }
+        }
+        public bool Check()
+        {
+            if (this.Hp <= 0)
+            {
+                this.Hp = 0;
+
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

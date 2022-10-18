@@ -14,6 +14,4 @@ namespace pokemon
         public int S { get; set; }
         public int D { get; set; }
     }
-
-    public void 
 }
